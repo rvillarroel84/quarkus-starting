@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 public class NativeBookResourceIT extends BookResourceTest {
 
     @Test
+    @Override
     public void ShouldGetABook() {
         given().header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON).pathParam("id", 3).when().get("/api/books/{id}")
                 .then().statusCode(200).body("title", is("Effective Java")).body("yearOfPublication", is(2001))
